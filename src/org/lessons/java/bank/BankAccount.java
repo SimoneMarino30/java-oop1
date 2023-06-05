@@ -13,7 +13,7 @@
 //  - e il saldo sia accessibile solo in lettura 🟩
 //  - siano presenti un metodo per versare una somma di denaro sul conto 🟩
 //  - e uno per prelevare una somma di denaro dal conto 🟩
-//   (attenzione: il saldo non può mai diventare negativo)🛑
+//   (attenzione: il saldo non può mai diventare negativo) 🟩
 
 //- altri metodi per ritornare le informazioni del conto e il saldo formattato
 
@@ -23,13 +23,13 @@
 // con un numero di conto random (da 1 a 1000) 🟩
 
 // Poi chiediamo all’utente cosa vuole fare dando 3 opzioni:
-// 1- versare una somma  🛑
-// 2- o prelevare una somma di denaro, 🛑
-// 3- oppure uscire. 🛑
+// 1- versare una somma 🟩
+// 2- o prelevare una somma di denaro, 🟩
+// 3- oppure uscire. 🟩
 // Dopo la scelta dell’utente chiediamo quanti soldi vuole versare
 // o prelevare e proviamo ad effettuare l’operazione sul conto. 🟩
 
-// Se l’operazione non è valida mostriamo un messaggio di errore. 🛑
+// Se l’operazione non è valida mostriamo un messaggio di errore. 🟩
 // Se l’operazione va a buon fine mostriamo il saldo attuale del conto. 🟩
 // Il menu continua ad apparire fino a che l’utente sceglie di uscire. 🟩
 
@@ -74,7 +74,7 @@ public class BankAccount {
     // METHODS
     public double putMoney() {
         Scanner scan = new Scanner(System.in);
-        System.out.print("Quanto vuoi depositare? ");
+        System.out.print("How much money do you want to deposit? ");
         double depositedMoney = scan.nextDouble();
         balance += depositedMoney;
         // scan.close();
@@ -82,13 +82,16 @@ public class BankAccount {
     }
 
     public double getMoney() {
-        /* if(balance <= 0) {
-            System.out.println("Sorry, your balance is negative");
-        } */
+
         Scanner scan = new Scanner(System.in);
-        System.out.print("Quanto vuoi prelevare? ");
+        System.out.print("How much do you want to withdraw? ");
         double withdrawMoney = scan.nextDouble();
-        balance -= withdrawMoney;
+        if(withdrawMoney <= balance) {
+            balance -= withdrawMoney;
+            System.out.println("Your current balance is: " + balance);
+        } else {
+            System.out.println("Sorry, your current balance is: " + balance + " you can't withdraw");
+        }
         scan.close();
         return balance;
     }
