@@ -48,7 +48,7 @@ public class BankAccount {
     // CONSTRUCTORS
     public BankAccount(String username, double balance) {
         this.accountNumb = new Random().nextInt(1, 1000);
-        this.username = username; // Richiedo il nome utente nel main con lo scanner
+        this.username = getUsername(); // Richiedo il nome utente nel main con lo scanner
         this.balance = balance;
     }
 
@@ -58,9 +58,9 @@ public class BankAccount {
         return this.accountNumb;
     }
 
-    /*public String getUsername() {
+    public String getUsername() {
         return this.username;
-    } */
+    }
 
     public double getBalance() {
         return this.balance;
@@ -95,4 +95,5 @@ public class BankAccount {
         scan.close();
         return balance;
     }
+
 }

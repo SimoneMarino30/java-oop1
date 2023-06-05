@@ -98,5 +98,18 @@ public class Product {
         System.out.println("VAT NUMBER: " + vatNumber + "%");
         System.out.println("FULL PRICE WITH VAT %: " + getVatNumberPrice() + "€");
         System.out.println("FULL NAME WITH CODE: " + getNamePlusCode());
+        // CODICE A 8 CIFRE
+        System.out.println("-----------------------------------");
+        System.out.println("BONUS -> 8 DIGITS CODE : " + getPadCode());
+        System.out.println("-----------------------------------");
+    }
+
+    //BONUS
+    public String getPadCode() {
+        String myCode = Integer.toString(code);
+        while (myCode.length() < 8) {
+            myCode = 0 + myCode;
+        }
+        return myCode;
     }
 }

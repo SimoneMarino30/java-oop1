@@ -13,8 +13,11 @@ public class Main {
         System.out.println("VAT NUMBER: " + myProduct.getVatNumber() + "%");
         System.out.println("FULL PRICE WITH VAT %: " + myProduct.getVatNumberPrice() + "€");
         System.out.println("FULL NAME WITH CODE: " + myProduct.getNamePlusCode());
+        // CODICE A 8 CIFRE
+        System.out.println("-----------------------------------");
+        System.out.println("BONUS -> 8 DIGITS CODE: " + myProduct.getPadCode());
 
-        System.out.println("------------------------------------------");
+        System.out.println("-----------------------------------");
 
         //Attributi di yourProduct (SETTER)
         myProduct.setName("matita");
